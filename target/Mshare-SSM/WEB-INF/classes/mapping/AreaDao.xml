@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwn.dao.AreaDao">
+  <resultMap id="BaseResultMap" type="com.zwn.model.AreaEntity">
+    <!--
+    @mbggenerated
+    -->
+    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="areaname" jdbcType="VARCHAR" property="areaname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    @mbggenerated
+    -->
+    aid, areaname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    @mbggenerated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from area
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    @mbggenerated
+    -->
+    delete from area
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zwn.model.AreaEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into area (aid, areaname)
+    values (#{aid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zwn.model.AreaEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="areaname != null">
+        areaname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null">
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zwn.model.AreaEntity">
+    <!--
+    @mbggenerated
+    -->
+    update area
+    <set>
+      <if test="areaname != null">
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zwn.model.AreaEntity">
+    <!--
+    @mbggenerated
+    -->
+    update area
+    set areaname = #{areaname,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+</mapper>

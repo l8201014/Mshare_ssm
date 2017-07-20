@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwn.dao.ScoreorderDao">
+  <resultMap id="BaseResultMap" type="com.zwn.model.ScoreorderEntity">
+    <!--
+    @mbggenerated
+    -->
+    <id column="omid" jdbcType="INTEGER" property="omid" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="imid" jdbcType="INTEGER" property="imid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    @mbggenerated
+    -->
+    omid, score, imid, uid, state, name, phone, addr, date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    @mbggenerated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from scoreorder
+    where omid = #{omid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    @mbggenerated
+    -->
+    delete from scoreorder
+    where omid = #{omid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zwn.model.ScoreorderEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into scoreorder (omid, score, imid, 
+      uid, state, name, phone, 
+      addr, date)
+    values (#{omid,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{imid,jdbcType=INTEGER}, 
+      #{uid,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zwn.model.ScoreorderEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into scoreorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="omid != null">
+        omid,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="imid != null">
+        imid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="omid != null">
+        #{omid,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="imid != null">
+        #{imid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zwn.model.ScoreorderEntity">
+    <!--
+    @mbggenerated
+    -->
+    update scoreorder
+    <set>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="imid != null">
+        imid = #{imid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where omid = #{omid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zwn.model.ScoreorderEntity">
+    <!--
+    @mbggenerated
+    -->
+    update scoreorder
+    set score = #{score,jdbcType=INTEGER},
+      imid = #{imid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR}
+    where omid = #{omid,jdbcType=INTEGER}
+  </update>
+</mapper>

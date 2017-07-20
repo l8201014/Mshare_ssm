@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwn.dao.FansDao">
+  <resultMap id="BaseResultMap" type="com.zwn.model.FansEntity">
+    <!--
+    @mbggenerated
+    -->
+    <id column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="follow" jdbcType="INTEGER" property="follow" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    @mbggenerated
+    -->
+    fid, follow, uid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    @mbggenerated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from fans
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    @mbggenerated
+    -->
+    delete from fans
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zwn.model.FansEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into fans (fid, follow, uid
+      )
+    values (#{fid,jdbcType=INTEGER}, #{follow,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zwn.model.FansEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into fans
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="follow != null">
+        follow,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="follow != null">
+        #{follow,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zwn.model.FansEntity">
+    <!--
+    @mbggenerated
+    -->
+    update fans
+    <set>
+      <if test="follow != null">
+        follow = #{follow,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zwn.model.FansEntity">
+    <!--
+    @mbggenerated
+    -->
+    update fans
+    set follow = #{follow,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>
